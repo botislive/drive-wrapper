@@ -1,7 +1,7 @@
 // app/login/page.tsx
 'use client'
 
-import { createClient } from '@/utils/supabase/client'
+import { createClient, getURL } from '@/utils/supabase/client'
 
 export default function Login() {
   const supabase = createClient()
@@ -15,7 +15,7 @@ export default function Login() {
           access_type: 'offline',
           prompt: 'consent',
         },
-        redirectTo: `${window.location.origin}/auth/callback?next=/dashboard`,
+        redirectTo: `${getURL()}auth/callback?next=/dashboard`,
       },
     })
   }
